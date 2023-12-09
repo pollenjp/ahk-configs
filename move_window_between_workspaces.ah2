@@ -31,13 +31,7 @@ myGui.show()
 
 ;include the library
 #Include %A_LineFile%\..\VD.ahk\VD.ah2
-; or
-; #Include %A_LineFile%\..\_VD.ahk
-; ...{startup code}
-; VD.init()
-
-; VD.ahk : calls `VD.init()` on #Include
-; _VD.ahk : `VD.init()` when you want, like after a GUI has rendered, for startup performance reasons
+VD.init()
 
 ;you should WinHide invisible programs that have a window.
 try WinHide "Malwarebytes Tray Application"
@@ -46,10 +40,6 @@ try WinHide "Malwarebytes Tray Application"
 VD.createUntil(3) ;create until we have at least 3 VD
 
 return
-
-; wrapping / cycle back to first desktop when at the last
-; ^#left::VD.goToRelativeDesktopNum(-1)
-; ^#right::VD.goToRelativeDesktopNum(+1)
 
 ; move window to left and follow it
 ^#+left::VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", -1))
