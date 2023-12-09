@@ -39,11 +39,16 @@ try WinHide "Malwarebytes Tray Application"
 
 VD.createUntil(3) ;create until we have at least 3 VD
 
-return
-
 ; move window to left and follow it
 ^#+left::VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", -1))
+; ^#+left::{
+;     ; sleep(100)
+;     VD.MoveWindowToRelativeDesktopNum("A", -1)
+;     VD.goToRelativeDesktopNum(-1)
+; }
 ; move window to right and follow it
 ^#+right::VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", 1))
 
-f3::Exitapp
+; f3::Exitapp
+
+return
